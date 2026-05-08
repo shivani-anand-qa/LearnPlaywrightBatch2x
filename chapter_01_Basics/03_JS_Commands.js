@@ -4,4 +4,4 @@ console.log(process.platform);
 //win - win32
 
 console.log(process.arch);
-//console.log("Node Version:");
+console.log("Node Version:", process.version);
