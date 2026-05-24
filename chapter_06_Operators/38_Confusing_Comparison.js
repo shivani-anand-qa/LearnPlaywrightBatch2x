@@ -1,70 +1,115 @@
+console.log("38 — Confusing Comparisons in JS");
 // ============================================================
-// 38 - Confusing Comparisons: == vs ===
-// == (loose / abstract equality)  → coerces types before comparing
-// === (strict equality)           → checks value AND type, no coercion
+// 38 — Confusing Comparisons in JS:  ==  vs  ===
+// ============================================================
+//
+// Rule of thumb:
+//   ==   → loose equality  (does type coercion, surprising)
+//   ===  → strict equality (no coercion, what you usually want)
+//
+// Run with:  node 38_Confusing_Comparsion.js
 // ============================================================
 
-// --- 1. Number vs String ---
-console.log("--- Number vs String ---");
-console.log(42 == "42");    // true  (string "42" coerced to number 42)
-console.log(42 === "42");   // false (number !== string)
-console.log(0 == "0");      // true  ("0" coerced to 0)
-console.log(0 === "0");     // false
 
-// --- 2. Boolean coercion ---
-console.log("\n--- Boolean vs Number/String ---");
-console.log(true == 1);     // true  (true → 1)
-console.log(true === 1);    // false
-console.log(false == 0);    // true  (false → 0)
-console.log(false === 0);   // false
-console.log(true == "1");   // true  (true → 1, "1" → 1)
-console.log(true == 2);     // false (true → 1, not 2)
+// ---------- 1. Empty string vs 0 vs "0"  (transitivity broken) ----------
+console.log("" == 0);        // true   → "" coerced to Number → 0
+console.log("0" == 0);       // true   → "0" coerced to Number → 0
+console.log("" == "0");      // false  → both strings, compared as-is
 
-// --- 3. Empty string & zero (the famous broken transitivity) ---
-console.log("\n--- Empty string & zero ---");
-console.log(0 == "");       // true  ("" coerced to 0)
-console.log(0 == "0");      // true  ("0" coerced to 0)
-console.log("" == "0");     // false (both strings, no coercion — values differ)
-// If == were transitive: (0=="") && (0=="0") should mean ""=="0" — but it doesn't! 🤯
+// === fixes it
+console.log("" === 0);       // false
+console.log("0" === 0);      // false
+console.log("" === "0");     // false
 
-// --- 4. null & undefined ---
-console.log("\n--- null & undefined ---");
-console.log(null == undefined);  // true  (special rule: only equal to each other)
-console.log(null === undefined); // false (different types)
-console.log(null == 0);          // false (null only loosely equals undefined)
-console.log(null == false);      // false
-console.log(null == "");         // false
-console.log(undefined == 0);    // false
-console.log(undefined == false); // false
 
-// --- 5. NaN ---
-console.log("\n--- NaN ---");
-console.log(NaN == NaN);    // false (NaN is never equal to anything, including itself)
-console.log(NaN === NaN);   // false
-console.log(Number.isNaN(NaN)); // true (correct way to check for NaN)
+// ---------- 2. null and undefined ----------
+console.log(null == undefined);   // true   → special rule in ==
+console.log(null === undefined);  // false  → different types
+console.log(null == 0);           // false  → null only == undefined/null
+console.log(null >= 0);           // true   → >= coerces null to 0  (gotcha!)
+console.log(null > 0);            // false
+console.log(null == 0 || null > 0); // false … but null >= 0 is true 🤯
 
-// --- 6. Objects / Arrays (reference equality) ---
-console.log("\n--- Objects & Arrays ---");
-console.log([] == []);       // false (different references)
-console.log([] === []);      // false
-console.log({} == {});       // false
-console.log({} === {});      // false
 
-console.log([] == false);    // true  ([] → "" → 0, false → 0)
-console.log([] == 0);        // true  ([] → "" → 0)
-console.log([] == "");       // true  ([] → "")
-console.log([] === false);   // false
+// ---------- 3. Booleans coerce to numbers ----------
+console.log(true == 1);      // true
+console.log(true == "1");    // true   → "1" → 1, true → 1
+console.log(false == 0);     // true
+console.log(false == "");    // true   → both → 0
+console.log(false == "0");   // true   → "0" → 0, false → 0
+console.log(true === 1);     // false  → different types
 
-console.log(!![] == true);   // true  ([] is truthy, !![] is true)
 
-// --- 7. != vs !== ---
-console.log("\n--- != vs !== ---");
-console.log(5 != "5");       // false (loosely equal, so NOT not-equal)
-console.log(5 !== "5");      // true  (different types → strictly not equal)
+// ---------- 4. NaN — never equal to anything, even itself ----------
+console.log(NaN == NaN);     // false
+console.log(NaN === NaN);    // false
+console.log(Number.isNaN(NaN));  // true  ← correct way to check
+
+
+// ---------- 5. Object vs primitive ----------
+console.log([] == false);    // true   → [] → "" → 0, false → 0
+console.log([] == 0);        // true   → [] → "" → 0
+console.log([] == "");       // true   → [] → ""
+console.log([0] == false);   // true   → [0] → "0" → 0
+console.log([1] == true);    // true   → [1] → "1" → 1
+console.log([1, 2] == "1,2"); // true   → array toString
+console.log({} == {});       // false  → different references
+console.log([] == []);       // false  → different references
+
+
+// ---------- 6. String to number traps ----------
+console.log(" " == 0);       // true   → " " trimmed → "" → 0
+console.log("\n\t" == 0);    // true   → whitespace → 0
+console.log("0x10" == 16);   // true   → hex string parsed
+console.log("1e2" == 100);   // true   → scientific notation
+
+
+// ---------- 7. The infamous trio ----------
+console.log(null == false);       // false  ← surprise! null only == undefined
+console.log(undefined == false);  // false  ← same here
+console.log(undefined == 0);      // false
+
+
+// ---------- 8. typeof results (always strings) ----------
+console.log(typeof null);          // "object"  (legacy bug)
+console.log(typeof undefined);     // "undefined"
+console.log(typeof NaN);           // "number"
+console.log(typeof null === "object");      // true
+console.log(typeof undefined === "undefined"); // true
+
+// NaN = not a Number
+
+
+// ---------- 9. Object.is — strictest equality (handles NaN and -0) ----------
+// Object.is(a, b) is like === but fixes two edge cases:
+//   1. NaN  → Object.is(NaN, NaN) is true  (=== gives false)
+//   2. -0   → Object.is(-0, 0)   is false  (=== gives true)
+
+console.log(Object.is(NaN, NaN));   // true   ← unlike ===
+console.log(NaN === NaN);           // false
+
+console.log(Object.is(-0, 0));      // false  ← unlike ===
+console.log(-0 === 0);              // true
+
+console.log(Object.is(1, 1));       // true   → same as ===
+console.log(Object.is(null, null)); // true
+console.log(Object.is(undefined, undefined)); // true
+console.log(Object.is(1, "1"));     // false  → no coercion
+
+
+// ---------- 10. Quick interview cheats ----------
+// "" == 0           → true
+// "" == "0"         → false
+// 0 == "0"          → true
+// null == undefined → true
+// null == 0         → false   but   null >= 0 → true
+// NaN == NaN        → false
+// [] == ![]         → true   (![] → false → 0; [] → "" → 0)
+console.log([] == ![]);   // true 🤯
+
 
 // ============================================================
-// RULE OF THUMB:
-//   Always use === and !==
-//   Use == only when you explicitly want type coercion
-//   (e.g., checking null == undefined to catch both at once)
+// TAKEAWAY:  Always use ===  (and !==).
+// Use ==  only for null/undefined check:   if (x == null) { ... }
+// Use Object.is for NaN and -0 edge cases.
 // ============================================================

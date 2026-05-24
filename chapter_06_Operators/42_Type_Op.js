@@ -9,7 +9,7 @@ let age = 25;
 let isActive = true;
 let score = null;
 let city;
-let greet = function() {};
+let greet = function () { };
 let nums = [1, 2, 3];
 
 console.log(typeof name);      // string
@@ -20,6 +20,16 @@ console.log(typeof city);      // undefined
 console.log(typeof greet);     // function
 console.log(typeof nums);      // object  (arrays are objects)
 console.log(typeof {});        // object
+
+// typeof with direct literals
+console.log(typeof "hello");   // string
+console.log(typeof 123);       // int -> number
+console.log(typeof 31.4);      // float -> number
+// typeof true       -> boolean
+// typeof undefined  -> undefined
+// typeof null       -> object
+// typeof []         -> object
+console.log(typeof []);        // object
 
 // Practical use: guard against undefined variables
 function printLength(str) {

@@ -52,3 +52,13 @@ console.log("x:", x, "y:", y); // x: 6  y: 5
 let p = 5;
 let q = ++p;   // p becomes 6 first, then q gets 6
 console.log("p:", p, "q:", q); // p: 6  q: 6
+
+// --- Pre Decrement with assignment: decrements FIRST, then assigns ---
+let m = 10;
+let n = --m;   // m becomes 9 first, then n gets 9
+console.log("m:", m, "n:", n); // m: 9  n: 9
+
+// --- Post Decrement with assignment: assigns FIRST, then decrements ---
+let s = 10;
+let t = s--;   // t gets 10 (original), then s becomes 9
+console.log("s:", s, "t:", t); // s: 9  t: 10
