@@ -123,28 +123,37 @@ A structured learning repository covering JavaScript fundamentals, TypeScript, a
 │   ├── 94_Concat_Array.js              - Concatenating arrays
 │   └── 95_Array_Checking.js            - Array.isArray, every, some
 │
-└── chapter_12_Functions/
-    ├── 96_Functions.js                 - Function basics: define and call
-    ├── 97_Type1_Basic_Fn.js            - Type 1: no parameter, no return
-    ├── 98_Type2_Fn_With_Param_No_Return.js  - Type 2: with parameter, no return
-    ├── 99_Type3_Fn_without_Param_Return_Type.js - Type 3: no parameter, with return
-    ├── 100_Type4_Fn_With_Param_With_Return.js   - Type 4: with parameter, with return
-    ├── 101_Template_literal.js         - Template literals inside functions
-    ├── 103_Arrow_Fn.js                 - Arrow functions (ES6): converting regular functions to arrow syntax
-    ├── 104_Arrow_Fn_REAL.js            - Real-world arrow function example: HTTP status code validator
-    ├── 105_IIFE.js                     - IIFE (Immediately Invoked Function Expressions)
-    ├── 106_Default_Param_Fn.js         - Default parameters in functions
-    ├── 107_IQ.js                       - IQ: return values, function expressions vs declarations
-    ├── 108_Rest_Param_Fn.js            - Rest parameters (...params)
-    ├── 109_IQ.js                       - IQ: spread vs rest, error checking with spread
-    ├── 110_Spread_IQ.js                - Spread operator IQ questions
-    ├── 111_Scope._Fn.js                - Scope in functions: global vs local scope
-    ├── 112_IQ.js                       - IQ: nested scope and block scope (ReferenceError demo)
-    ├── 113_Closure.js                  - Closures: makeCounter and basic closure pattern
-    ├── 114_Closure.js                  - Closures continued: counter object with increment/decrement/get
-    ├── 115_API_REAL_Closure.js         - Real-world closure: retry tracker for test automation
-    ├── 116_Higher_Order_Fn.js          - Higher-order functions (functions as arguments)
-    └── 117_Pure_Fn.js                  - Pure vs impure functions
+├── chapter_12_Functions/
+│   ├── 96_Functions.js                 - Function basics: define and call
+│   ├── 97_Type1_Basic_Fn.js            - Type 1: no parameter, no return
+│   ├── 98_Type2_Fn_With_Param_No_Return.js  - Type 2: with parameter, no return
+│   ├── 99_Type3_Fn_without_Param_Return_Type.js - Type 3: no parameter, with return
+│   ├── 100_Type4_Fn_With_Param_With_Return.js   - Type 4: with parameter, with return
+│   ├── 101_Template_literal.js         - Template literals inside functions
+│   ├── 103_Arrow_Fn.js                 - Arrow functions (ES6): converting regular functions to arrow syntax
+│   ├── 104_Arrow_Fn_REAL.js            - Real-world arrow function example: HTTP status code validator
+│   ├── 105_IIFE.js                     - IIFE (Immediately Invoked Function Expressions)
+│   ├── 106_Default_Param_Fn.js         - Default parameters in functions
+│   ├── 107_IQ.js                       - IQ: return values, function expressions vs declarations
+│   ├── 108_Rest_Param_Fn.js            - Rest parameters (...params)
+│   ├── 109_IQ.js                       - IQ: spread vs rest, error checking with spread
+│   ├── 110_Spread_IQ.js                - Spread operator IQ questions
+│   ├── 111_Scope._Fn.js                - Scope in functions: global vs local scope
+│   ├── 112_IQ.js                       - IQ: nested scope and block scope (ReferenceError demo)
+│   ├── 113_Closure.js                  - Closures: makeCounter and basic closure pattern
+│   ├── 114_Closure.js                  - Closures continued: counter object with increment/decrement/get
+│   ├── 115_API_REAL_Closure.js         - Real-world closure: retry tracker for test automation
+│   ├── 116_Higher_Order_Fn.js          - Higher-order functions (functions as arguments)
+│   └── 117_Pure_Fn.js                  - Pure vs impure functions
+│
+└── chapter_13_Strings.js/
+    ├── 118_Strings.js                  - String creation: single quotes, double quotes, backticks
+    ├── 119_String_Properties.js        - String properties: length, typeof, character access
+    ├── 120_Search_Check_Str.js         - Searching & checking: includes, startsWith, endsWith, indexOf
+    ├── 121_Substring.js                - Extracting substrings: slice, substring
+    ├── 122_Transform_Str.js            - Transforming strings: toUpperCase, toLowerCase, trim, replace
+    ├── 123_SC.js                       - Type conversion: toString, Number, parseInt, parseFloat
+    └── June 3 task.js                  - Practice tasks: palindrome checker and anagram detector
 ```
 
 ## Topics Covered
@@ -251,6 +260,15 @@ A structured learning repository covering JavaScript fundamentals, TypeScript, a
 - Higher-order functions: passing functions as arguments
 - Pure functions vs impure functions: predictability and side effects
 
+### Chapter 13 — Strings
+- String creation: single quotes, double quotes, backticks
+- String properties: `length`, `typeof`, accessing characters by index
+- Searching & checking: `includes`, `startsWith`, `endsWith`, `indexOf`, `lastIndexOf`
+- Extracting substrings: `slice(start, end)`, `substring(start, end)`
+- Transforming strings: `toUpperCase`, `toLowerCase`, `trim`, `trimStart`, `trimEnd`, `replace`, `replaceAll`
+- Type conversion: `toString`, `Number()`, `parseInt`, `parseFloat`, `String()`
+- Practice tasks: palindrome checker (loop & built-in approaches), anagram detector (sort & compare)
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18 or above recommended)
@@ -303,6 +321,15 @@ node chapter_12_Functions/114_Closure.js
 node chapter_12_Functions/115_API_REAL_Closure.js
 node chapter_12_Functions/116_Higher_Order_Fn.js
 node chapter_12_Functions/117_Pure_Fn.js
+
+# Chapter 13
+node "chapter_13_Strings.js/118_Strings.js"
+node "chapter_13_Strings.js/119_String_Properties.js"
+node "chapter_13_Strings.js/120_Search_Check_Str.js"
+node "chapter_13_Strings.js/121_Substring.js"
+node "chapter_13_Strings.js/122_Transform_Str.js"
+node "chapter_13_Strings.js/123_SC.js"
+node "chapter_13_Strings.js/June 3 task.js"
 ```
 
 ## Author
