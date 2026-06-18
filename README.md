@@ -146,14 +146,30 @@ A structured learning repository covering JavaScript fundamentals, TypeScript, a
 │   ├── 116_Higher_Order_Fn.js          - Higher-order functions (functions as arguments)
 │   └── 117_Pure_Fn.js                  - Pure vs impure functions
 │
-└── chapter_13_Strings.js/
-    ├── 118_Strings.js                  - String creation: single quotes, double quotes, backticks
-    ├── 119_String_Properties.js        - String properties: length, typeof, character access
-    ├── 120_Search_Check_Str.js         - Searching & checking: includes, startsWith, endsWith, indexOf
-    ├── 121_Substring.js                - Extracting substrings: slice, substring
-    ├── 122_Transform_Str.js            - Transforming strings: toUpperCase, toLowerCase, trim, replace
-    ├── 123_SC.js                       - Type conversion: toString, Number, parseInt, parseFloat
-    └── June 3 task.js                  - Practice tasks: palindrome checker and anagram detector
+├── chapter_13_Strings.js/
+│   ├── 118_Strings.js                  - String creation: single quotes, double quotes, backticks
+│   ├── 119_String_Properties.js        - String properties: length, typeof, character access
+│   ├── 120_Search_Check_Str.js         - Searching & checking: includes, startsWith, endsWith, indexOf
+│   ├── 121_Substring.js                - Extracting substrings: slice, substring
+│   ├── 122_Transform_Str.js            - Transforming strings: toUpperCase, toLowerCase, trim, replace
+│   ├── 123_SC.js                       - Type conversion: toString, Number, parseInt, parseFloat
+│   └── June 3 task.js                  - Practice tasks: palindrome checker and anagram detector
+│
+└── chapter_14_Objects/
+    ├── 124_Objects.js                  - Object introduction: creating objects with key-value pairs
+    ├── 125_Objects2.js                 - Objects with multiple properties
+    ├── 126_Objects_Creation.js         - Object creation and reference equality (=== on objects)
+    ├── 127_Objects_REAL.js             - Real-world object usage: building a config object dynamically
+    ├── 128_Primitive_Ref.js            - Primitive vs reference types (call by value vs call by reference)
+    ├── 129_Ob_Examples.js              - JSON vs object distinction
+    ├── 130_IQ.js                       - IQ: dot notation and bracket notation access
+    ├── 131_Object_Fn.js                - Methods inside objects (object functions)
+    ├── 132_Obj_Decon.js                - Object destructuring and variable renaming
+    ├── 133_Spread.js                   - Spread operator with objects: copy and merge
+    ├── 134_Objects_GET_SET_Methods.js  - Getter and setter methods in objects
+    ├── 135_IQ.js                       - Object.keys, Object.values, Object.entries, for...in loop
+    ├── 136_Obj_REAL.js                 - Real-world objects in test automation (config, expected response)
+    └── 137_Let_const_obj.js            - let vs const with objects: mutating properties vs reassignment
 ```
 
 ## Topics Covered
@@ -269,6 +285,22 @@ A structured learning repository covering JavaScript fundamentals, TypeScript, a
 - Type conversion: `toString`, `Number()`, `parseInt`, `parseFloat`, `String()`
 - Practice tasks: palindrome checker (loop & built-in approaches), anagram detector (sort & compare)
 
+### Chapter 14 — Objects
+- Object introduction: key-value pairs, object literals
+- Creating objects dynamically by adding properties after declaration
+- Reference equality: why `obj1 === obj2` is `false` for two separate objects
+- Primitive vs reference types: call by value (primitives) vs call by reference (objects, arrays, functions)
+- JSON vs object distinction
+- Accessing properties: dot notation and bracket notation
+- Methods inside objects: defining functions as object properties
+- Object destructuring: extracting properties into variables, renaming on destructure
+- Spread operator with objects: shallow copy and merging objects
+- Getter and setter methods (`get` / `set`) in objects
+- `Object.keys`, `Object.values`, `Object.entries` for iterating object data
+- `for...in` loop for iterating object properties
+- Real-world objects in test automation: config objects, expected-response objects
+- `let` vs `const` with objects: properties can always be mutated; `const` only prevents reassignment
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18 or above recommended)
@@ -330,6 +362,22 @@ node "chapter_13_Strings.js/121_Substring.js"
 node "chapter_13_Strings.js/122_Transform_Str.js"
 node "chapter_13_Strings.js/123_SC.js"
 node "chapter_13_Strings.js/June 3 task.js"
+
+# Chapter 14
+node chapter_14_Objects/124_Objects.js
+node chapter_14_Objects/125_Objects2.js
+node chapter_14_Objects/126_Objects_Creation.js
+node chapter_14_Objects/127_Objects_REAL.js
+node chapter_14_Objects/128_Primitive_Ref.js
+node chapter_14_Objects/129_Ob_Examples.js
+node chapter_14_Objects/130_IQ.js
+node chapter_14_Objects/131_Object_Fn.js
+node chapter_14_Objects/132_Obj_Decon.js
+node chapter_14_Objects/133_Spread.js
+node chapter_14_Objects/134_Objects_GET_SET_Methods.js
+node chapter_14_Objects/135_IQ.js
+node chapter_14_Objects/136_Obj_REAL.js
+node chapter_14_Objects/137_Let_const_obj.js
 ```
 
 ## Author
