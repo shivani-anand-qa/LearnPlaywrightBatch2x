@@ -193,14 +193,24 @@ A structured learning repository covering JavaScript fundamentals, TypeScript, a
 │   ├── 152_CB_Parameter.js             - Callbacks with parameters: passing data into callback functions
 │   └── 153_CB_Return.js                - Callbacks with return values: using callback result in caller
 │
-└── chapter_17_Promise/
-    ├── 154_Promise.js                  - Promise introduction: resolve and reject with food delivery analogy
-    ├── 155_Promise_REAL_API.js         - Real API call simulation: Promise resolving with status 200 and body
-    ├── 156_Promise_REAL_API_PART2.js   - Promise rejection: handling errors with .catch and chaining .then
-    ├── 157_Finally.js                  - .finally() block: cleanup code that runs after resolve or reject
-    ├── 158_Call_Py_Problem.js          - Callback pyramid refactored with Promises: multi-step browser flow
-    ├── 159_Promise_ALL.js              - Promise.all: running multiple checks in parallel and awaiting all
-    └── 160_Promise_IQ.js               - Promise IQ questions: chaining, execution order, async behaviour
+├── chapter_17_Promise/
+│   ├── 154_Promise.js                  - Promise introduction: resolve and reject with food delivery analogy
+│   ├── 155_Promise_REAL_API.js         - Real API call simulation: Promise resolving with status 200 and body
+│   ├── 156_Promise_REAL_API_PART2.js   - Promise rejection: handling errors with .catch and chaining .then
+│   ├── 157_Finally.js                  - .finally() block: cleanup code that runs after resolve or reject
+│   ├── 158_Call_Py_Problem.js          - Callback pyramid refactored with Promises: multi-step browser flow
+│   ├── 159_Promise_ALL.js              - Promise.all: running multiple checks in parallel and awaiting all
+│   └── 160_Promise_IQ.js               - Promise IQ questions: chaining, execution order, async behaviour
+│
+└── chapter_18_Async_Await/
+    ├── 161_Async.js                    - async/await with try/catch: handling rejected Promises
+    ├── 162_Async.js                    - await with chained async calls: token fetch and API usage
+    ├── 163_PyODom.js                   - Refactoring callback hell into async/await: multi-step browser flow
+    ├── 164_Async_Ex.js                 - Basic async/await: returning values and awaiting results
+    ├── 165_AA_Parallel.js              - Parallel async execution: running independent tasks concurrently
+    ├── 165_AA_Seq.js                   - Sequential async execution: awaiting dependent steps in order
+    ├── 166_IQ.js                       - Async/await IQ: identifying async vs normal functions and parallel vs sequential
+    └── 167_ACLogin.js                  - Real Playwright test: async login flow with page interactions and assertions
 ```
 
 ## Topics Covered
@@ -365,6 +375,16 @@ A structured learning repository covering JavaScript fundamentals, TypeScript, a
 - `Promise.all`: run multiple independent checks in parallel and wait for all to complete
 - Promise IQ: execution order, chaining behaviour, and async gotchas
 
+### Chapter 18 — Async / Await
+- `async` functions: automatically return a Promise; `await` pauses execution until a Promise settles
+- `try / catch` with async/await: replacing `.catch()` for cleaner error handling
+- Awaiting chained async calls: fetching a token then using it in a subsequent request
+- Refactoring callback hell and Promise chains into flat, readable async/await code
+- Sequential async execution: awaiting steps that depend on previous results
+- Parallel async execution: running independent async tasks concurrently with `Promise.all`
+- IQ questions: distinguishing async vs normal functions and sequential vs parallel patterns
+- Real Playwright test: end-to-end login flow using `async ({ page }) => {}` with `await` actions and `expect` assertions
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18 or above recommended)
@@ -462,6 +482,15 @@ node chapter_17_Promise/157_Finally.js
 node chapter_17_Promise/158_Call_Py_Problem.js
 node chapter_17_Promise/159_Promise_ALL.js
 node chapter_17_Promise/160_Promise_IQ.js
+
+# Chapter 18
+node chapter_18_Async_Await/161_Async.js
+node chapter_18_Async_Await/162_Async.js
+node chapter_18_Async_Await/163_PyODom.js
+node chapter_18_Async_Await/164_Async_Ex.js
+node chapter_18_Async_Await/165_AA_Parallel.js
+node chapter_18_Async_Await/165_AA_Seq.js
+node chapter_18_Async_Await/166_IQ.js
 
 node chapter_14_Objects/125_Objects2.js
 node chapter_14_Objects/126_Objects_Creation.js
